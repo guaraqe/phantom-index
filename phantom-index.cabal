@@ -1,0 +1,40 @@
+name:
+  phantom-index
+version:
+  0.1.0
+synopsis:
+  Phantom indexes for data constructors
+description:
+  Type operators for convenient indexing of data constructors
+license:
+  BSD3
+author:
+  guaraqe
+maintainer:
+  guaraqe@openmailbox.org
+category:
+build-type:
+  Simple
+extra-source-files:
+  ChangeLog.md
+cabal-version:
+  >=1.10
+
+library
+  exposed-modules:
+    Data.Indexed
+  default-extensions:
+    TypeOperators
+  build-depends:
+    base >=4.7 && <4.10,
+    constraint-classes >=0.6 && <0.7,
+    constraints,
+    deepseq,
+    newtype
+  hs-source-dirs:
+    src
+  ghc-options:
+    -O2
+    -Wall
+  default-language:
+    Haskell2010
