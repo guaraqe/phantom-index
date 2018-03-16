@@ -128,6 +128,7 @@ instance (HasIndexed f, CZip f) => CZip ((Indexed f) i) where
   --{-# INLINE _zap #-}
 
 instance (HasIndexed f, CUnzip f) => CUnzip ((Indexed f) i) where
+  _unzip = bimap mkIx mkIx . _unzip . unIx
   _unzipWith f = bimap mkIx mkIx . _unzipWith f . unIx
   {-# INLINE _unzipWith #-}
 
