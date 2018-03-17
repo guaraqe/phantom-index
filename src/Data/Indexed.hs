@@ -7,6 +7,7 @@ module Data.Indexed
   ) where
 
 import Control.ConstraintClasses
+import Control.DeepSeq
 import Control.Newtype
 
 import Data.Bifunctor
@@ -27,6 +28,9 @@ instance HasIndexed [] where
   newtype Indexed [] i a = List [a]
   unIx (List l) = l
   mkIx l = List l
+
+instance (HasIndexed f, NFData (f a)) => NFData (Indexed f i a) where
+  rnf = rnf . unIx
 
 --------------------------------------------------------------------------------
 
